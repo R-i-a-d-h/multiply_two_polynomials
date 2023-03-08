@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multiply_two_polynomials/widgets/custom_button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,35 +17,15 @@ class HomeScreen extends StatelessWidget {
                 child: Image.asset(
                   'images/math.png',
                 )),
+            const SizedBox(height: 8),
+            CustomButton(onTap: (){}, text: "Iterative Algorithm"),
+            CustomButton(onTap: (){}, text: "Divide and Conquer Algorithm"),
+            CustomButton(onTap: (){}, text: "Iterative Vs Divide And Conquer"),
+            CustomButton(onTap: (){}, text: "iterative Algorithm'"),
 
-            Padding(
-              padding: const EdgeInsets.only(top: 16,left: 16,bottom: 8,right: 16),
-              child: SizedBox(
-                height: 60,
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF61D7A8), // Background color
-                  ),
-                  child: const Text('iterative Algorithm'),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8,left: 16,bottom: 8,right: 16),
-              child: SizedBox(
-                height: 60,
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF61D7A8), // Background color
-                  ),
-                  child: const Text('iterative Algorithm'),
-                ),
-              ),
-            ),
+
+
+
           ],
         ),
       ),
