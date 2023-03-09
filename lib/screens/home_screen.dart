@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
             CustomButton(onTap: (){}, text: "Iterative Algorithm".toUpperCase()),
             CustomButton(onTap: (){}, text: "Divide and Conquer Algorithm".toUpperCase()),
             CustomButton(onTap: (){}, text: "Iterative Vs Divide And Conquer".toUpperCase()),
-            CustomButton(onTap: (){}, text: "iterative Algorithm".toUpperCase()),
+            CustomButton(onTap: (){}, text: "Complexity".toUpperCase()),
 
 
 
