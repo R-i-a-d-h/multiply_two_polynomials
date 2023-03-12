@@ -2,11 +2,7 @@ class ExponentAndCoefficient {
   late int exponent;
   late int coefficient;
 
-  ExponentAndCoefficient(this.exponent, this.coefficient);
-
-  ExponentAndCoefficient.setExponent(this.exponent);
-
-  ExponentAndCoefficient.setCoefficient(this.coefficient);
+  ExponentAndCoefficient({required this.exponent, required this.coefficient });
 
 
 
