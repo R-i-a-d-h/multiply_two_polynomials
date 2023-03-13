@@ -1,5 +1,7 @@
 import 'dart:collection';
 import 'dart:core';
+import 'package:flutter/cupertino.dart';
+
 import 'exponent_and_coefficient.dart';
 
 class IterativeAlgorithm {
@@ -20,8 +22,8 @@ class IterativeAlgorithm {
       multiLine: true,
     );
 
-    const multilineText = '10+1x^5+1x^2';
-    Iterable<RegExpMatch> matches = regExp.allMatches(multilineText);
+
+    Iterable<RegExpMatch> matches = regExp.allMatches(poly);
     for (final m in matches) {
       String? coef = m.namedGroup('coef');
       String? exp = m.namedGroup('exp');
@@ -35,14 +37,22 @@ class IterativeAlgorithm {
 
         }
         ExponentAndCoefficient exponentAndCoefficient = ExponentAndCoefficient(coefficient: coefficient , exponent: exponent);
+
         arrayList.add(exponentAndCoefficient);
       }
     }
+    debugPrint('movieTitle: '+arrayList.toString());
 
     return arrayList;
   }
 // Iterative Algorithm for multiply tow polynomials
   List<int> multiply(List<int> A, List<int> B, int m, int n) {
+    debugPrint('A '+ A.toString() );
+    debugPrint('B '+ B.toString() );
+    debugPrint('A '+ printPoly(A, A.length) );
+    debugPrint('B '+ printPoly(B, B.length) );
+
+
     List<int> prod = List<int>.filled(m + n - 1, 0);
 
     for (int i = 0; i < m + n - 1; i++) {
@@ -61,7 +71,7 @@ class IterativeAlgorithm {
   String printPoly(List<int> poly, int n) {
     String st = "";
     for (int i = 0; i < n; i++) {
-      st = "$st + ${poly[i]}";
+      st = "$st${poly[i]}";
 
       if (i != 0) {
         st = "${st}x^$i";
@@ -80,14 +90,14 @@ class IterativeAlgorithm {
     exponentAndCoefficients.sort((a, b) => a.exponent.compareTo(b.exponent));
     for (int i = 0; i < exponentAndCoefficients.length; i++) {
       int res = 0;
-      int coefficient = exponentAndCoefficients[i].exponent;
+      int exponent = exponentAndCoefficients[i].exponent;
       for (int j = 0; j < exponentAndCoefficients.length; j++) {
         if (exponentAndCoefficients[i].exponent ==
-            exponentAndCoefficients[i].exponent) {
+            exponentAndCoefficients[j].exponent) {
           res = res + exponentAndCoefficients[j].coefficient;
         }
       }
-    ExponentAndCoefficient exponentAndCoefficient=  ExponentAndCoefficient(exponent: res , coefficient:  coefficient);
+    ExponentAndCoefficient exponentAndCoefficient=  ExponentAndCoefficient(exponent: exponent, coefficient:  res);
       arrayList.add(exponentAndCoefficient);
     }
     int max = 0;
@@ -107,15 +117,16 @@ class IterativeAlgorithm {
     return a;
   }
 
+
   HashMap<String, String> multiplyInfo() {
     HashMap<String, String> info = HashMap();
     List<int> a1 = convArrayListToArray(p);
     List<int> a2 = convArrayListToArray(q);
     int m = a1.length;
     int n = a2.length;
-    int t1 = DateTime.now().millisecondsSinceEpoch;
+    int t1 = DateTime.now().millisecond;
     List<int> prod = multiply(a1, a2, m, n);
-    int t2 = DateTime.now().millisecondsSinceEpoch;
+    int t2 = DateTime.now().millisecond;
     String st = printPoly(prod, m + n - 1);
     String st2 = printPoly(a1, m);
     String st3 = printPoly(a2, n);
@@ -124,8 +135,8 @@ class IterativeAlgorithm {
     info["2"] = st2;
     info["3"] = st3;
     info["4"] = "O(n^2)";
-    info["5"] = "$n * $m + ";
-    info["6"] = "$t2 - $t1 + ";
+    info["5"] = "$n * $m  =  ${n*m}";
+    info["6"] = "$t2 - $t1  = ${t2-t1} ";
 
     return info;
   }

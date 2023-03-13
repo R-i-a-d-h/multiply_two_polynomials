@@ -32,7 +32,7 @@ class _MultiplyScreenState extends State<MultiplyScreen> {
                 Multiply(firstController.text ,secondController.text);
               });
             }, text: "Multiply".toUpperCase()),
-            CustomTextField(text: text,maxLines: 8,hintText: "",isEnabled: true, controller: thirdController,),
+            CustomTextField(maxLines: 8,hintText: "",isEnabled: true, controller: thirdController,),
 
           ],
         ),
@@ -42,7 +42,7 @@ class _MultiplyScreenState extends State<MultiplyScreen> {
   void Multiply(String p,String q)  {
     IterativeAlgorithm iterativeAlgorithm =  IterativeAlgorithm(p, q);
     HashMap<String, String> info = iterativeAlgorithm.multiplyInfo();
-    text =
+    thirdController.text =
         "P = ${info["2"]!}\nQ = ${info["3"]!}\nP * Q = ${info["1"]!}\nDuration  = ${info["6"]!} ns\nComplexity  = ${info["4"]!}\nNumber of operations  = ${info["5"]!}" ;
 
   }
